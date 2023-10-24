@@ -9,7 +9,8 @@ void swapInPlace(std::array<T, S> &arr, size_t beginFirst, size_t endFirst, size
     // check min/max intervals
     if (!(beginFirst < endFirst && beginSecond < endSecond))
     {
-        return; // Do nothing as the intervals are incorrect
+        // Do nothing as the intervals are incorrect
+        return; 
     }
 
     size_t beginLeft, endLeft, beginRight, endRight;
@@ -28,11 +29,12 @@ void swapInPlace(std::array<T, S> &arr, size_t beginFirst, size_t endFirst, size
         endRight = endFirst;
     }
 
-    bool leftWider = endLeft - beginLeft > endRight - beginSecond; // If left interval is wider
+    // Find if left interval is wider
+    const bool leftWider = endLeft - beginLeft > endRight - beginSecond;
 
     // Find common length and difference between intervals
-    size_t comLen = std::min(endLeft - beginLeft, endRight - beginRight);
-    size_t excLen = std::max(endLeft - beginLeft, endRight - beginRight) - comLen;
+    const size_t comLen = std::min(endLeft - beginLeft, endRight - beginRight);
+    const size_t excLen = std::max(endLeft - beginLeft, endRight - beginRight) - comLen;
 
     auto itFirst = std::next(arr.begin(), beginLeft);
     auto itSecond = std::next(arr.begin(), beginRight);
@@ -57,9 +59,9 @@ void swapInPlace(std::array<T, S> &arr, size_t beginFirst, size_t endFirst, size
         else
         {
             // cyclic rotation to the right
-            auto rbeg = std::reverse_iterator(itEnd);
-            auto rmid = rbeg + excLen;
-            auto rend = std::reverse_iterator(itFirst);
+            const auto rbeg = std::reverse_iterator(itEnd);
+            const auto rmid = rbeg + excLen;
+            const auto rend = std::reverse_iterator(itFirst);
             std::rotate(rbeg, rmid, rend);
         }
     }

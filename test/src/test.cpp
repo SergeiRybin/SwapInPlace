@@ -12,7 +12,7 @@ BOOST_AUTO_TEST_CASE(WideLeftAdjacent) // Left wider adjacent intervals
 {
     array<unsigned int, 10> arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     swapInPlace(arr, 1, 5, 5, 6);
-    array<unsigned int, 10> targetArr = {0, 5, 1, 2, 3, 4, 6, 7, 8, 9};
+    const array<unsigned int, 10> targetArr = {0, 5, 1, 2, 3, 4, 6, 7, 8, 9};
     BOOST_TEST(arr == targetArr);
 }
 
@@ -20,7 +20,7 @@ BOOST_AUTO_TEST_CASE(WideLeftBasic) // Left bigger than right
 {
     array<unsigned int, 10> arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     swapInPlace(arr, 1, 4, 7, 8);
-    array<unsigned int, 10> targetArr = {0, 7, 4, 5, 6, 1, 2, 3, 8, 9};
+    const array<unsigned int, 10> targetArr = {0, 7, 4, 5, 6, 1, 2, 3, 8, 9};
     BOOST_TEST(arr == targetArr);
 }
 
@@ -28,7 +28,7 @@ BOOST_AUTO_TEST_CASE(WideLeftBasic2) // Left bigger than right
 {
     array<unsigned int, 10> arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     swapInPlace(arr, 1, 4, 6, 8);
-    array<unsigned int, 10> targetArr = {0, 6, 7, 4, 5, 1, 2, 3, 8, 9};
+    const array<unsigned int, 10> targetArr = {0, 6, 7, 4, 5, 1, 2, 3, 8, 9};
     BOOST_TEST(arr == targetArr);
 }
 
@@ -36,7 +36,7 @@ BOOST_AUTO_TEST_CASE(SingleElementIntervals) //Equal 1 range
 {
     array<unsigned int, 10> arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     swapInPlace(arr, 1, 2, 6, 7);
-    array<unsigned int, 10> targetArr = {0, 6, 2, 3, 4, 5, 1, 7, 8, 9};
+    const array<unsigned int, 10> targetArr = {0, 6, 2, 3, 4, 5, 1, 7, 8, 9};
     BOOST_TEST(arr == targetArr);
 }
 
@@ -44,7 +44,7 @@ BOOST_AUTO_TEST_CASE(WideRightInterval) //Right wider than left
 {
     array<unsigned int, 10> arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     swapInPlace(arr, 1, 2, 5, 7);
-    array<unsigned int, 10> targetArr = {0, 5, 6, 2, 3, 4, 1, 7, 8, 9};
+    const array<unsigned int, 10> targetArr = {0, 5, 6, 2, 3, 4, 1, 7, 8, 9};
     BOOST_TEST(arr == targetArr);
 }
 
@@ -52,7 +52,7 @@ BOOST_AUTO_TEST_CASE(WideRightAdjacent) //Right wider adjacent
 {
     array<unsigned int, 10> arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     swapInPlace(arr, 1, 2, 2, 7);
-    array<unsigned int, 10> targetArr = {0, 2, 3, 4, 5, 6, 1, 7, 8, 9};
+    const array<unsigned int, 10> targetArr = {0, 2, 3, 4, 5, 6, 1, 7, 8, 9};
     BOOST_TEST(arr == targetArr);
 }
 
