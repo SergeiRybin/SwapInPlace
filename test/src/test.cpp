@@ -1,8 +1,8 @@
 #define BOOST_TEST_MODULE static library test // Defines the name of the program which is used in the messages
-#include <boost/test/unit_test.hpp>
 #include <array_util.hpp>
-#include <vector>
+#include <boost/test/unit_test.hpp>
 #include <time.h>
+#include <vector>
 
 using namespace std;
 
@@ -70,7 +70,7 @@ BOOST_AUTO_TEST_CASE(RandomizedTest)
         size_t rightEnd = rightBeg + rand() % 4 + 1;
 
         std::vector<unsigned int> vec;
-        vec.reserve(width);                // preallocate memory
+        vec.reserve(width); // preallocate memory
 
         // Assemble vector with swapped intervals
         vec.insert(vec.end(), arr.begin(), next(arr.begin(), leftBeg));

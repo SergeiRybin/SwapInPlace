@@ -1,9 +1,9 @@
 #pragma once
 
-#include <array>
 #include <algorithm>
+#include <array>
 
-template<typename T, size_t S>
+template <typename T, size_t S>
 void swapInPlace(std::array<T, S> &arr, size_t beginFirst, size_t endFirst, size_t beginSecond, size_t endSecond)
 {
     // check min/max intervals
@@ -33,7 +33,7 @@ void swapInPlace(std::array<T, S> &arr, size_t beginFirst, size_t endFirst, size
     // Find common length and difference between intervals
     size_t comLen = std::min(endLeft - beginLeft, endRight - beginRight);
     size_t excLen = std::max(endLeft - beginLeft, endRight - beginRight) - comLen;
-    
+
     auto itFirst = std::next(arr.begin(), beginLeft);
     auto itSecond = std::next(arr.begin(), beginRight);
     auto itEnd = std::next(arr.begin(), endRight);
@@ -63,5 +63,4 @@ void swapInPlace(std::array<T, S> &arr, size_t beginFirst, size_t endFirst, size
             std::rotate(rbeg, rmid, rend);
         }
     }
-
 }

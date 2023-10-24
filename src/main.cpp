@@ -1,5 +1,5 @@
-#include <iostream>
 #include <array_util.hpp>
+#include <iostream>
 
 using namespace std;
 
@@ -15,7 +15,7 @@ int main()
     }
     cout << endl;
 
-    cout << "Swapping [1, 4) & [7, 8)..." << endl << endl;;
+    cout << "Swapping [1, 4) & [7, 8)..." << endl << endl;
 
     swapInPlace(arr, 1, 4, 7, 8);
 
