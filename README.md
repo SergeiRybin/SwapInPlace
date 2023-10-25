@@ -16,8 +16,8 @@ The intervals are swapped:
 
 ```
 mkdir build
-cmake ..
 cd build
+cmake ..
 cmake --build . --config Release
 ```
 
