@@ -8,6 +8,22 @@ using namespace std;
 
 BOOST_AUTO_TEST_SUITE(MainSuite)
 
+BOOST_AUTO_TEST_CASE(MyRotateLeft)
+{
+    array<unsigned int, 10> arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    myRotate(arr.begin(), arr.begin() + 4, arr.end());
+    const array<unsigned int, 10> targetArr = {4, 5, 6, 7, 8, 9, 0, 1, 2, 3};
+    BOOST_TEST(arr == targetArr);
+}
+
+BOOST_AUTO_TEST_CASE(MyRotateRight)
+{
+    array<unsigned int, 10> arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    myRotate(arr.rbegin(), arr.rbegin() + 3, arr.rend());
+    const array<unsigned int, 10> targetArr = {7, 8, 9, 0, 1, 2, 3, 4, 5, 6};
+    BOOST_TEST(arr == targetArr);
+}
+
 BOOST_AUTO_TEST_CASE(WideLeftAdjacent) // Left wider adjacent intervals
 {
     array<unsigned int, 10> arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -16,7 +32,7 @@ BOOST_AUTO_TEST_CASE(WideLeftAdjacent) // Left wider adjacent intervals
     BOOST_TEST(arr == targetArr);
 }
 
-BOOST_AUTO_TEST_CASE(WideLeftBasic) // Left bigger than right
+BOOST_AUTO_TEST_CASE(WideLeftBasic) // Left wider than right
 {
     array<unsigned int, 10> arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     swapInPlace(arr, 1, 4, 7, 8);
@@ -24,7 +40,7 @@ BOOST_AUTO_TEST_CASE(WideLeftBasic) // Left bigger than right
     BOOST_TEST(arr == targetArr);
 }
 
-BOOST_AUTO_TEST_CASE(WideLeftBasic2) // Left bigger than right
+BOOST_AUTO_TEST_CASE(WideLeftBasic2) // Left wider than right
 {
     array<unsigned int, 10> arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     swapInPlace(arr, 1, 4, 6, 8);

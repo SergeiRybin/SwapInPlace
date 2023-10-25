@@ -3,6 +3,36 @@
 #include <algorithm>
 #include <array>
 
+template<typename It>
+void myRotate(It first, It middle, It last)
+{
+    // Rotation is not needed, first is already in desired position
+    if (first == middle) 
+    {
+        return;
+    }
+
+    It nextPart = middle;
+
+    while (middle != last)
+    {
+        std::iter_swap(first, middle);
+        ++first;
+        ++middle;
+
+        if (nextPart == first) 
+        {
+            // Left part is rotated
+            nextPart = middle;
+        }
+        else if (last == middle) 
+        {
+            // Rotate remaining sequence
+            middle = nextPart;
+        }
+    }
+}
+
 template <typename T, size_t S>
 void swapInPlace(std::array<T, S> &arr, size_t beginFirst, size_t endFirst, size_t beginSecond, size_t endSecond)
 {
@@ -54,7 +84,7 @@ void swapInPlace(std::array<T, S> &arr, size_t beginFirst, size_t endFirst, size
         // If left interval was wider, cyclic rotation to the left
         if (leftWider)
         {
-            std::rotate(itFirst, itFirst + excLen, itEnd);
+            myRotate(itFirst, itFirst + excLen, itEnd);
         }
         else
         {
@@ -62,7 +92,7 @@ void swapInPlace(std::array<T, S> &arr, size_t beginFirst, size_t endFirst, size
             const auto rbeg = std::reverse_iterator(itEnd);
             const auto rmid = rbeg + excLen;
             const auto rend = std::reverse_iterator(itFirst);
-            std::rotate(rbeg, rmid, rend);
+            myRotate(rbeg, rmid, rend);
         }
     }
 }
