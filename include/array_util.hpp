@@ -7,7 +7,7 @@ template <typename T, size_t S>
 void swapInPlace(std::array<T, S> &arr, size_t beginFirst, size_t endFirst, size_t beginSecond, size_t endSecond)
 {
     // check min/max intervals
-    if (!(beginFirst < endFirst && beginSecond < endSecond))
+    if (!(beginFirst < endFirst && beginSecond < endSecond && endFirst < S && endSecond < S))
     {
         // Do nothing as the intervals are incorrect
         return; 
@@ -30,7 +30,7 @@ void swapInPlace(std::array<T, S> &arr, size_t beginFirst, size_t endFirst, size
     }
 
     // Find if left interval is wider
-    const bool leftWider = endLeft - beginLeft > endRight - beginSecond;
+    const bool leftWider = (endLeft - beginLeft) > (endRight - beginSecond);
 
     // Find common length and difference between intervals
     const size_t comLen = std::min(endLeft - beginLeft, endRight - beginRight);
